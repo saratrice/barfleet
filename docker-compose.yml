@@ -1,0 +1,31 @@
+version: '3'
+volumes:
+  # We'll define a volume that will store the data from the postgres databases:
+  postgres-data:
+    driver: local
+  # We'll also define a volume that will store gems installed manually after the initial app
+  # development image build process:
+
+services:
+  db:
+    image: postgres
+    volumes:
+      # We'll mount the 'postgres-data' volume into the location Postgres stores it's data:
+      - postgres-data:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      # Mount our app code directory (".") into our app containers at the /application folder
+      - .:/application
+      # Mount the 'gems' volume on the folder that stores bundled gems:
+      # - app-gems:/var/lib/gems
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+    environment:
+      - S3_BUCKET_NAME=barfleet-dev
+      - AWS_REGION=us-east-1
