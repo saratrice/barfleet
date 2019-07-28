@@ -1,5 +1,5 @@
 %nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-primary
-  %a.navbar-brand{:href => "#"} Navbar
+  %a.navbar-brand{:href => "#"} Barfleet
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
@@ -18,10 +18,15 @@
           %a.dropdown-item{:href => "#"} Another action
           .dropdown-divider
           %a.dropdown-item{:href => "#"} Something else here
-      - if true
+      - if session[:userinfo].blank?
+        %li.nav-item
+          = link_to 'auth/auth0', class: 'nav-link' do
+            Log In
+      - else
         %li.nav-item
           = link_to logout_path, method: :delete, class: 'nav-link' do
             Log Out
+
 
     / %form.form-inline.my-2.my-lg-0
     /   %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
