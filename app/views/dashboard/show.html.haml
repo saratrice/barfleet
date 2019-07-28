@@ -1,2 +1,17 @@
 %h1 You've logged in!
-= session[:userinfo].inspect
+
+/ app/views/dashboard/show.html.erb
+%section.jumbotron.text-center
+  %h2
+    %img.jumbo-thumbnail.img-circle{:src => "#{@user[:info][:image]}"}/
+  %h1
+    Welcome, #{@user[:info][:name]}
+%section.container
+  .panel.panel-default
+    .panel-heading Normalized User Profile
+    .panel-body
+      %pre= JSON.pretty_generate(@user[:info])
+  .panel.panel-default
+    .panel-heading Full User Profile
+    .panel-body
+      %pre= JSON.pretty_generate(@user[:extra][:raw_info])
