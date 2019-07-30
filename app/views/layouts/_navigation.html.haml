@@ -20,7 +20,7 @@
           %a.dropdown-item{:href => "#"} Something else here
       - if session[:userinfo].blank?
         %li.nav-item
-          = link_to 'auth/auth0', class: 'nav-link' do
+          = button_to 'auth/auth0', class: 'btn btn-success' do
             Log In
       - else
         %li.nav-item
