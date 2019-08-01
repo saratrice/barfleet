@@ -22,6 +22,10 @@ RSpec.describe Auth0Controller, type: :controller do
     it 'shows a failure page' do
       get :failure, params: { 'message' => 'failed login' }
       expect(response).to render_template (:failure)
+    end
+
+    it 'assigns the error_msg instance variable' do
+      get :failure, params: { 'message' => 'failed login' }
       expect(assigns(:error_msg)).to eq('failed login')
     end
   end
