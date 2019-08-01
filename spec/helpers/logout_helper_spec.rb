@@ -1,15 +1,9 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the LogoutHelper. For example:
-#
-# describe LogoutHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe LogoutHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#logout_url' do
+    it 'responds with a logout url for Auth0' do
+      expect(helper.logout_url.to_s).to eq('https://test-auth0-url.com/v2/logout?returnTo=http://test.host/&client_id=12345')
+    end
+  end
 end
