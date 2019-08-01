@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @profile.user
+%p
+  %b First name:
+  = @profile.first_name
+%p
+  %b Last name:
+  = @profile.last_name
+%p
+  %b Address1:
+  = @profile.address1
+%p
+  %b Address2:
+  = @profile.address2
+%p
+  %b City:
+  = @profile.city
+%p
+  %b State:
+  = @profile.state
+%p
+  %b Zip:
+  = @profile.zip
+%p
+  %b Email:
+  = @profile.email
+%p
+  %b Phone:
+  = @profile.phone
+%p
+  %b Active:
+  = @profile.active
+
+= link_to 'Edit', edit_profile_path(@profile)
+\|
+= link_to 'Back', profiles_path
