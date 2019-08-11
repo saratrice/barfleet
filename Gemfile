@@ -41,12 +41,17 @@ gem 'omniauth'
 gem 'omniauth-auth0'
 gem 'omniauth-rails_csrf_protection'
 
+
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'haml-rails', '~> 2.0'
 gem 'simple_form'
 
+# Organization tree
 gem 'ancestry'
+
+gem 'data_migrate'
+
 
 group :development, :test do
   gem 'annotate'
@@ -80,7 +85,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'simplecov', require: false
-  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

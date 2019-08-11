@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(version: 2019_08_10_210936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "divisions", force: :cascade do |t|
     t.string "type"
     t.string "name"
