@@ -103,7 +103,9 @@ RSpec.describe ProfilesController, type: :controller do
         profile = create(:profile)
         put :update, params: {id: profile.to_param, profile: new_attributes}, session: valid_session
         profile.reload
-        skip("Add assertions for updated state")
+
+        expect(profile.first_name).to eq('Ted')
+        expect(profile.last_name).to eq('E. Bear')
       end
 
       it "redirects to the profile" do

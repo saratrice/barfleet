@@ -12,8 +12,8 @@
 
 FactoryBot.define do
   factory :user do
-    oauth_uid { "MyString" }
-    email { "MyString" }
+    oauth_uid { "auth0|#{SecureRandom.hex[0..24]}" }
+    email { Faker::Internet.email }
     email_verified { false }
   end
 end
