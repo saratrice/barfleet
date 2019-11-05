@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%h3 Membership for #{@profile.full_name}
+
+%p
+  %strong
+    Division:
+  = division_pathname(@membership.division)
+
+%p
+  %strong
+    Rank:
+  = # @membership.rank.name
+
+%p
+  %strong
+    Role:
+  = # @membership.role.name
+
+= link_to 'Edit', edit_profile_membership_path(@profile, @membership)
+\|
+= link_to 'Back', profile_memberships_path(@profile)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: divisions
@@ -14,5 +16,6 @@
 
 class Division < ApplicationRecord
   has_ancestry
-
+  has_many :memberships
+  has_many :profiles, through: :memberships
 end

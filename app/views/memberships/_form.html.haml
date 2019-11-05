@@ -1,0 +1,13 @@
+-# frozen_string_literal: true
+
+.col-md-6
+  = simple_form_for([@profile, @membership]) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+    .form-inputs
+      = f.input :division_id, as: :select, collection: @divisions
+
+    .form-actions
+      = f.button :submit, class: "btn btn-primary"
+

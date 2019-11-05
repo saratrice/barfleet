@@ -1,0 +1,8 @@
+%h1 Editing membership
+
+= render 'form'
+
+%br
+= link_to 'Show', profile_membership_path(@profile, @membership)
+\|
+= link_to 'Back', profile_memberships_path(@profile)

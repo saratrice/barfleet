@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: profiles
@@ -20,6 +22,14 @@
 
 class Profile < ApplicationRecord
   belongs_to :user, optional: true
+  has_many :memberships
+  has_many :divisions, through: :memberships
+
+  accepts_nested_attributes_for :memberships
 
   validates :first_name, :last_name, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

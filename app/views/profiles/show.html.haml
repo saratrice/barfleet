@@ -34,6 +34,19 @@
   %b Active:
   = @profile.active
 
+%h2 Memberships
+%p=link_to 'Edit Memberships', profile_memberships_path(@profile)
+.col-md-6
+  %table.table.table-striped.table-bordered.table-hover.table-sm
+    %thead.thead-dark
+      %tr
+        %th Division Name
+    %tbody
+      - @profile.memberships.each do |membership|
+        %tr
+          %td= division_pathname(membership.division)
+
+
 = link_to 'Edit', edit_profile_path(@profile)
 \|
 = link_to 'Back', profiles_path

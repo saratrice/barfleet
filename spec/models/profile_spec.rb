@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: profiles
@@ -24,4 +26,10 @@ RSpec.describe Profile, type: :model do
   subject { build :profile }
 
   it { is_expected.to be_valid }
+
+  describe '#full_name' do
+    it 'does something' do
+      expect(subject.full_name).to eq("#{subject.first_name} #{subject.last_name}")
+    end
+  end
 end
