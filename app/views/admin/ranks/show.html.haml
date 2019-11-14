@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %strong
+    Rank Name:
+  = @rank.name
+%p
+  %strong
+    Abbreviation:
+  = @rank.abbreviation
+%p
+  %strong
+    Sort Number:
+  = @rank.sort_number
+
+
+= link_to 'Edit', edit_admin_rank_path(@rank)
+\|
+= link_to 'Back', admin_ranks_path

@@ -10,7 +10,10 @@
 %p
   %strong
     Rank:
-  = # @membership.rank.name
+  - if @membership.rank
+    #{ @membership.rank.name } (#{ @membership.rank.abbreviation })
+  - else
+    N/A
 
 %p
   %strong

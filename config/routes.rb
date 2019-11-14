@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :ranks
+  end
   root 'welcome#index'
   get 'dashboard' => 'dashboard#show'
 
