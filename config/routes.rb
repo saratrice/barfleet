@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :ranks
+    resources :departments
   end
   root 'welcome#index'
   get 'dashboard' => 'dashboard#show'

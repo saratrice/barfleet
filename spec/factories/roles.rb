@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :role do
-    name { "MyString" }
-    description { "MyText" }
+    name { Faker::Construction.role }
+    description { Faker::Lorem.paragraph }
     head { false }
     division { nil }
     department { nil }
