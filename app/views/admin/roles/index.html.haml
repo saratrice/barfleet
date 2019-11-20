@@ -1,0 +1,26 @@
+%h1 Listing roles
+
+%table.table.table-striped.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Name
+      %th Head?
+      %th Division
+      %th Department
+      %th{colspan: 3} Actions
+
+  %tbody
+    - @roles.each do |role|
+      %tr
+        %td
+          = role.name
+        %td= role.head ? "Yes" : "No"
+        %td= division_pathname(role.division)
+        %td= role.department.try(:name)
+        %td= link_to 'Show', [:admin, role]
+        %td= link_to 'Edit', edit_admin_role_path(role)
+        %td= link_to 'Destroy', [:admin, role], method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Role', new_admin_role_path

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MembershipsController < ApplicationController
+  # helper AncestryHelper
+
   before_action :get_profile
   before_action :set_membership, only: %i[show edit update destroy]
   before_action :set_collections, only: %i[new edit]
@@ -81,21 +83,21 @@ class MembershipsController < ApplicationController
   end
 
   def set_collections
-    @divisions = ancestry_options(Division.all.arrange(order: 'name')) { |i| "#{'-' * i.depth} #{i.name}" }
+    @divisions = helpers.ancestry_options(Division.all.arrange(order: 'name')) { |i| "#{'-' * i.depth} #{i.name}" }
     @ranks = Rank.all.order(:sort_number)
   end
 
-  def ancestry_options(items, &block)
-    unless block_given?
-      return ancestry_options(items) { |i| "#{'-' * i.depth} #{i.name}" }
-    end
+  # def ancestry_options(items, &block)
+  #   unless block_given?
+  #     return ancestry_options(items) { |i| "#{'-' * i.depth} #{i.name}" }
+  #   end
 
-    result = []
-    items.map do |item, sub_items|
-      result << [yield(item), item.id]
-      # this is a recursive call:
-      result += ancestry_options(sub_items, &block)
-    end
-    result
-  end
+  #   result = []
+  #   items.map do |item, sub_items|
+  #     result << [yield(item), item.id]
+  #     # this is a recursive call:
+  #     result += ancestry_options(sub_items, &block)
+  #   end
+  #   result
+  # end
 end

@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %strong
+    Role Name:
+  = @role.name
+
+%p
+  %strong
+    Head Role?
+  = @role.head ? "Yes" : "No"
+
+%p
+  %strong
+    Division:
+  = division_pathname(@role.division)
+
+%p
+  %strong
+    Role Name:
+  = @role.department.try(:name)
+
+= link_to 'Edit', edit_admin_role_path(@role)
+\|
+= link_to 'Back', admin_roles_path

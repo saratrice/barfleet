@@ -1,0 +1,14 @@
+-# frozen_string_literal: true
+= simple_form_for([:admin, @role]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name, label: "Name (required)"
+    = f.input :description
+    = f.input :head, label: "Head of department?"
+    = f.input :division_id, as: :select, collection: @divisions, label: 'Division (only if this is specific to a ship or department)', include_blank: true
+    = f.input :department_id, as: :select, collection: @departments, label: 'Department (only if this is specific to a department)', include_blank: true
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
