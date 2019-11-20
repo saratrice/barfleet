@@ -1,4 +1,4 @@
-%h1 Listing admin_ranks
+%h1 Listing Ranks
 
 %table.table.table-striped.table-bordered.table-hover.table-sm
   %thead
@@ -9,7 +9,9 @@
   %tbody
     - @ranks.each do |rank|
       %tr
-        %td= rank.name
+        %td
+          = rank.name
+          = " (#{rank.abbreviation})" if rank.abbreviation.present?
         %td= link_to 'Show', admin_rank_path(rank)
         %td= link_to 'Edit', edit_admin_rank_path(rank)
         %td= link_to 'Destroy', admin_rank_path(rank), method: :delete, data: { confirm: 'Are you sure?' }

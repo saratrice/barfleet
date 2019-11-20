@@ -18,4 +18,5 @@ class Division < ApplicationRecord
   has_ancestry
   has_many :memberships
   has_many :profiles, through: :memberships
+  belongs_to :department, optional: true
 end
