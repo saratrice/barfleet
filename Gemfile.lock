@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/ctran/annotate_models.git
+  revision: 111640d077836ced23cfffb882c93e40968ab9d9
+  specs:
+    annotate (2.7.5)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 13.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,9 +68,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ancestry (3.0.7)
       activerecord (>= 3.2.0)
-    annotate (3.0.2)
-      activerecord (>= 3.2, < 7.0)
-      rake (>= 10.4, < 13.0)
     ast (2.4.0)
     autoprefixer-rails (9.7.1)
       execjs
@@ -339,7 +344,7 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
-  annotate
+  annotate!
   bootsnap (>= 1.1.0)
   bootstrap
   capybara (>= 2.15)

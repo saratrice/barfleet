@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2019_11_20_033919) do
   end
 
   create_table "divisions", force: :cascade do |t|
-    t.string "type"
     t.string "name"
     t.string "location"
     t.string "description"
