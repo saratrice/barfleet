@@ -6,6 +6,7 @@
       %tr
         %th Division Name
         %th Rank
+        %th Role
         %th{colspan: 3} Actions
     %tbody
       - @memberships.each do |membership|
@@ -16,6 +17,7 @@
               #{ membership.rank.name } (#{ membership.rank.abbreviation })
             - else
               N/A
+          %td= membership.role ? membership.role.name : 'N/A'
           %td= link_to 'Show', profile_membership_path(@profile, membership)
           %td= link_to 'Edit', edit_profile_membership_path(@profile, membership)
           %td= link_to 'Destroy', profile_membership_path(@profile, membership), method: :delete, data: { confirm: 'Are you sure?' }

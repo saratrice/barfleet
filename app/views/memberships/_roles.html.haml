@@ -1,0 +1,3 @@
+.form-group.select.optional.membership_role_id
+  %label.form-control-label.select.optional{:for => "membership_role_id"} Role (optional)
+  = select_tag 'membership[role_id]', grouped_options_for_select(@roles), class: "form-control select optional", include_blank: true

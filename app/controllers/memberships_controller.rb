@@ -64,6 +64,14 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def division_roles
+    division_roles = Division.find(params[:division]).available_roles
+    @roles = { 'Division Roles' => division_roles.map{ |role| [role.name, role.id] }, 'Non-Specific Roles' => Role.non_specific.map{ |role| [role.name, role.id] } }
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -73,7 +81,7 @@ class MembershipsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def membership_params
-    params.require(:membership).permit(:division_id, :rank_id)
+    params.require(:membership).permit(:division_id, :rank_id, :role_id)
   end
 
   def get_profile
@@ -83,6 +91,7 @@ class MembershipsController < ApplicationController
   def set_collections
     @divisions = helpers.ancestry_options(Division.all.arrange(order: 'name')) { |i| "#{'-' * i.depth} #{i.name}" }
     @ranks = Rank.all.order(:sort_number)
-    @roles = @membership.try(:division) ? @membership.division.available_roles : []
+    division_roles = @membership.try(:division) ? @membership.division.available_roles : []
+    @roles = { 'Division Roles' => division_roles, 'Non-Specific Roles' => Role.non_specific }
   end
 end

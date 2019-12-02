@@ -21,9 +21,14 @@ class Division < ApplicationRecord
   has_many :roles
   belongs_to :department, optional: true
 
-  def available_roles
-    return roles if department.blank?
+  # only return division specific roles
+  def path_roles
+    path.map { |div| div.roles.where.not(division_id: nil) }.flatten
+  end
 
-    (roles + department.roles).flatten
+  def available_roles
+    return path_roles if department.blank?
+
+    (path_roles + department.roles).flatten
   end
 end

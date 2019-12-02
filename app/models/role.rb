@@ -16,4 +16,6 @@ class Role < ApplicationRecord
   has_many :memberships
   belongs_to :division, optional: true
   belongs_to :department, optional: true
+
+  scope :non_specific, -> { where(division_id: nil, department_id: nil) }
 end

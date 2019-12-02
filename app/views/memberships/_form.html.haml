@@ -6,9 +6,10 @@
     = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
     .form-inputs
-      = f.input :division_id, as: :select, collection: @divisions
+      = f.input :division_id, as: :select, collection: @divisions, input_html: {onchange: j("role_change(this);")}
       = f.input :rank_id, as: :select, collection: @ranks, label: 'Rank (optional)'
-      = f.input :role_id, as: :select, collection: @roles, label: 'Role (optional)'
+      #roles
+        = f.input :role_id, as: :grouped_select, collection: @roles, label: 'Role (optional)', :group_method => :last, :label_method => :name, :value_method => :id
 
     .form-actions
       = f.button :submit, class: "btn btn-primary"
