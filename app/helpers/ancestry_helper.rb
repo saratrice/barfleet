@@ -12,4 +12,12 @@ module AncestryHelper
     end
     result
   end
+
+  def division_admin_tree(divisions)
+    s = content_tag(:ul) do
+      divisions.map do |division, subdivisions|
+        content_tag(:li, (link_to(division.name, [:admin, division]) +  division_admin_tree(subdivisions)).html_safe)
+      end.join.html_safe
+    end
+  end
 end

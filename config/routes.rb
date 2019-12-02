@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'main#index'
     resources :departments
+    resources :divisions
     resources :ranks
     resources :roles
   end

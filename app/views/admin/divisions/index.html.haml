@@ -1,0 +1,25 @@
+%h1 Barfleet Organization Structure
+
+
+= division_admin_tree(@divisions)
+
+
+/ %table.table.table-striped.table-bordered.table-hover.table-sm
+/   %thead
+/     %tr
+/       %th Name
+/       %th
+/       %th
+/       %th
+
+/   %tbody
+/     - @divisions.each do |division|
+/       %tr
+/         %td= division.name
+/         %td= link_to 'Show', [:admin, division]
+/         %td= link_to 'Edit', edit_admin_division_path(division)
+/         %td= link_to 'Destroy', [:admin, division], method: :delete, data: { confirm: 'Are you sure?' }
+
+/ %br
+
+= link_to 'New Division', new_admin_division_path

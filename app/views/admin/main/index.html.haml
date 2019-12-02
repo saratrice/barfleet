@@ -1,8 +1,11 @@
 %h1 Administration and Management
 
-%p This is where you can view, create and delete the following:
+%p This is where you can create, view, edit, and delete the following:
 
 %ul
+  %li
+    = link_to 'Divisions', admin_divisions_path
+    \- groups within Barfleet (ships & their departments, etc.)
   %li
     = link_to 'Departments', admin_departments_path
     \- department names used when creating a ship's departments

@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%h2= division_pathname(@division)
+
+%p
+  %strong
+    Name:
+  = @division.name
+%p
+  %strong
+    Location:
+  = @division.location
+%p
+  %strong
+    Description:
+  = @division.description
+%p
+  %strong
+    Department:
+  = @division.department&.name || 'N/A'
+
+
+= link_to 'Edit', edit_admin_division_path(@division)
+\|
+= link_to 'Back', admin_divisions_path
