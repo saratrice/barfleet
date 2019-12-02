@@ -14,7 +14,7 @@
 
 FactoryBot.define do
   factory :division do
-    type { "" }
+    department
     name { Faker::Lorem.word }
     location { "USA" }
     description { "A drinking club with a Star Trek problem" }

@@ -1,0 +1,14 @@
+%h1 Administration and Management
+
+%p This is where you can view, create and delete the following:
+
+%ul
+  %li
+    = link_to 'Departments', admin_departments_path
+    \- department names used when creating a ship's departments
+  %li
+    = link_to 'Roles', admin_roles_path
+    \- optional role names that are available when assigning a person to a ship
+  %li
+    = link_to 'Ranks', admin_ranks_path
+    \- all ranks available in Barfleet

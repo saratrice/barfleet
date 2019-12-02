@@ -7,7 +7,8 @@
 
     .form-inputs
       = f.input :division_id, as: :select, collection: @divisions
-      = f.input :rank_id, as: :select, collection: @ranks
+      = f.input :rank_id, as: :select, collection: @ranks, label: 'Rank (optional)'
+      = f.input :role_id, as: :select, collection: @roles, label: 'Role (optional)'
 
     .form-actions
       = f.button :submit, class: "btn btn-primary"

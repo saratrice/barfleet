@@ -18,5 +18,12 @@ class Division < ApplicationRecord
   has_ancestry
   has_many :memberships
   has_many :profiles, through: :memberships
+  has_many :roles
   belongs_to :department, optional: true
+
+  def available_roles
+    return roles if department.blank?
+
+    (roles + department.roles).flatten
+  end
 end
